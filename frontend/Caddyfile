@@ -1,0 +1,9 @@
+0.0.0.0:2015
+
+root /site/
+
+proxy / http://backend:3000 {
+    except /css /fonts /js /img
+}
+gzip
+log stdout

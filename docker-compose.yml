@@ -8,4 +8,4 @@ frontend:
 backend:
     build: ./backend/
     volumes:
-        - ./data/boltdb.db:/data/boltdb.db
+        - ./data/:/data/

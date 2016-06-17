@@ -5,7 +5,7 @@
     
         url = $("input#longurl").val();
 
-        var endpoint = '/enc/?url=' + url;
+        var endpoint = '/enc?url=' + url;
 
         if (event){
             event.preventDefault();

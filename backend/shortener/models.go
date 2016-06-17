@@ -4,7 +4,6 @@ import (
 	"encoding/binary"
 	"encoding/json"
 	"errors"
-	"log"
 	"strconv"
 	"time"
 
@@ -12,7 +11,7 @@ import (
 )
 
 // Index to mask ID.
-const index = 542
+const index = 4242
 
 // Shortener is the struct to be stored in db.
 type Shortener struct {
@@ -50,7 +49,6 @@ func (s *Shortener) Insert() error {
 
 // Retrieve a shortener from db.
 func (s *Shortener) Read() error {
-	log.Println(s.ID)
 	v := store.bucket.Get(itob(s.ID))
 	if v == nil {
 		return errors.New("key not found")
@@ -82,7 +80,7 @@ func (s *Shortener) SearchByURL() error {
 		if err := json.Unmarshal(v, &ts); err != nil {
 			return err
 		}
-		log.Println(ts)
+
 		if ts.LongURL == s.LongURL {
 			s.ShortURL = ts.ShortURL
 			return nil

@@ -70,7 +70,6 @@ func Encode(w http.ResponseWriter, r *http.Request) {
 		Status: "success",
 		Data:   "http://pirat.as/" + s.ShortURL,
 	})
-
 }
 
 // Redir handler
@@ -87,7 +86,6 @@ func Redir(w http.ResponseWriter, r *http.Request) {
 	s.ID = id
 	err = s.Read()
 	if err != nil {
-		log.Println(err)
 		errorResponse(w, r, err)
 		return
 	}

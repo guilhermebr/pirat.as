@@ -1,5 +1,9 @@
 frontend:
     build: ./frontend/
+    command: "go run /go/src/github.com/mholt/caddy/caddy/main.go"
+    volumes:
+        - ./frontend/:/site/
+        - $GOPATH/src/github.com/mholt/caddy/:/go/src/github.com/mholt/caddy/
     links:
         - backend:backend
     ports:
@@ -8,4 +12,5 @@ frontend:
 backend:
     build: ./backend/
     volumes:
-        - ./data/:/data/
+        - ./backend/:/go/src/github.com/guilhermebr/pirat.as/backend
+

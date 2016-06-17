@@ -7,4 +7,6 @@ WORKDIR $GOPATH/src/github.com/guilhermebr/pirat.as/backend
 
 RUN godep restore
 
+VOLUME /data/
+
 CMD ["go", "run", "main.go"]

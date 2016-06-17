@@ -2,8 +2,18 @@
 
 root /site/
 
-proxy / http://backend:3000 {
-    except /css /fonts /js /img
-}
 gzip
+ext .html
+
+rewrite {
+    r "/(.+)"
+    if {path} not_match /static
+    if {path} not_match /favicon.ico
+    to /api/{uri}
+}
+
+proxy /api http://backend:3000 {
+    without /api
+}
+
 log stdout

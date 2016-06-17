@@ -22,7 +22,7 @@ func main() {
 	n := negroni.Classic()
 	r := mux.NewRouter()
 
-	r.HandleFunc("/enc", shortener.Encode).Methods("GET")
+	r.HandleFunc("/enc/", shortener.Encode).Methods("GET")
 	r.HandleFunc("/{key}", shortener.Redir).Methods("GET")
 
 	n.UseHandler(r)

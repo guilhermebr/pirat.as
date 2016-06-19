@@ -20,8 +20,8 @@
 		},
 		{
 			"ImportPath": "github.com/dineshappavoo/basex",
-			"Comment": "0.1.0-11-g2e93703",
-			"Rev": "2e93703842a84113d1271d31bd26c5285ad08a3e"
+			"Comment": "0.1.1",
+			"Rev": "f35bafba529cfea4a0b09b55ba1588e894658299"
 		},
 		{
 			"ImportPath": "github.com/gorilla/context",

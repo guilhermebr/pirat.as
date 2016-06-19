@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"runtime"
 
 	"github.com/guilhermebr/pirat.as/backend/shortener"
 
@@ -11,8 +10,6 @@ import (
 )
 
 func main() {
-	log.Printf("CPU's %d\n", runtime.NumCPU())
-	runtime.GOMAXPROCS(runtime.NumCPU())
 	log.SetFlags(log.Ldate | log.Ltime | log.Llongfile)
 
 	if err := shortener.ConnectDB("shortener"); err != nil {

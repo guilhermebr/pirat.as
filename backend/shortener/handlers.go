@@ -5,6 +5,7 @@ import (
 	"errors"
 	"log"
 	"net/http"
+	"net/url"
 	"time"
 
 	"github.com/asaskevich/govalidator"
@@ -36,6 +37,11 @@ func Encode(w http.ResponseWriter, r *http.Request) {
 	if !validURL {
 		errorResponse(w, r, errors.New("invalid url"))
 		return
+	}
+
+	u, _ := url.Parse(longurl)
+	if u.Scheme == "" {
+		longurl = "http://" + longurl
 	}
 
 	// Search if url exist.

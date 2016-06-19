@@ -27,11 +27,10 @@
                 if(data.status == 'success') {
                     var result = data.data;
                     if( result === null) {
-                        // MetaSearch.message("Não encontrado!", "warning");
                         return;
                     }
                     $("#shorten-message").attr("class", "success");
-                    $('#shorten-message').html('<p>' + result + '</p>');
+                    $('#shorten-message').html('<a href="' + result + '">' + result + '</a>');
                 } else {
                     $("#shorten-message").attr("class", "error");
                     $('#shorten-message').html('<p>' + data.responseJSON.error.message + '</p>');

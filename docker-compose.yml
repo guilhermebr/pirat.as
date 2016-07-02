@@ -1,16 +1,25 @@
-frontend:
-    build: ./frontend/
-    command: "go run /go/src/github.com/mholt/caddy/caddy/main.go"
-    volumes:
-        - ./frontend/:/site/
-        - $GOPATH/src/github.com/mholt/caddy/:/go/src/github.com/mholt/caddy/
-    links:
-        - backend:backend
-    ports:
-        - 4242:2015
+version: "2"
 
-backend:
-    build: ./backend/
-    volumes:
-        - ./backend/:/go/src/github.com/guilhermebr/pirat.as/backend
+services:
+    frontend:
+        build: ./frontend/
+        networks:
+            - pnet
+        volumes:
+            - ./frontend/:/site/
+        links:
+            - backend:backend
+        ports:
+            - 4242:2015
 
+    backend:
+        build: ./backend/
+        networks:
+            - pnet
+        volumes:
+            - ./backend/:/go/src/github.com/guilhermebr/pirat.as/backend
+
+
+networks:
+    pnet:
+        driver: bridge

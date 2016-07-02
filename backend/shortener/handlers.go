@@ -32,16 +32,16 @@ func Encode(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	validURL := govalidator.IsURL(longurl)
+	u, _ := url.Parse(longurl)
+	if u.Scheme == "" {
+		longurl = "http://" + longurl
+	}
+
+	validURL := govalidator.IsRequestURL(longurl)
 
 	if !validURL {
 		errorResponse(w, r, errors.New("invalid url"))
 		return
-	}
-
-	u, _ := url.Parse(longurl)
-	if u.Scheme == "" {
-		longurl = "http://" + longurl
 	}
 
 	// Search if url exist.
@@ -52,12 +52,13 @@ func Encode(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	log.Println(r.Host)
 	if s.ShortURL != "" {
 		// Return success
 		w.WriteHeader(200)
 		json.NewEncoder(w).Encode(Response{
 			Status: "success",
-			Data:   "http://pirat.as/" + s.ShortURL,
+			Data:   "http://" + r.Host + "/" + s.ShortURL,
 		})
 		return
 	}
@@ -74,7 +75,7 @@ func Encode(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(200)
 	json.NewEncoder(w).Encode(Response{
 		Status: "success",
-		Data:   "http://pirat.as/" + s.ShortURL,
+		Data:   "http://" + r.Host + "/" + s.ShortURL,
 	})
 }
 

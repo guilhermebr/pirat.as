@@ -43,3 +43,7 @@ func ConnectDB(bucket string) error {
 
 	return nil
 }
+
+func CloseDB() {
+	store.db.Close()
+}

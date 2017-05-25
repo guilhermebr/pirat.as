@@ -1,7 +1,7 @@
 {
 	"ImportPath": "github.com/guilhermebr/pirat.as/backend",
-	"GoVersion": "go1.6",
-	"GodepVersion": "v62",
+	"GoVersion": "go1.8",
+	"GodepVersion": "v79",
 	"Deps": [
 		{
 			"ImportPath": "github.com/asaskevich/govalidator",
@@ -15,30 +15,32 @@
 		},
 		{
 			"ImportPath": "github.com/codegangsta/negroni",
-			"Comment": "v0.1-70-gc7477ad",
-			"Rev": "c7477ad8e330bef55bf1ebe300cf8aa67c492d1b"
+			"Comment": "v0.2.0-104-gc0db5fe",
+			"Rev": "c0db5feaa33826cd5117930c8f4ee5c0f565eec6"
 		},
 		{
 			"ImportPath": "github.com/dineshappavoo/basex",
-			"Comment": "0.1.1",
-			"Rev": "f35bafba529cfea4a0b09b55ba1588e894658299"
-		},
-		{
-			"ImportPath": "github.com/gorilla/context",
-			"Rev": "1c83b3eabd45b6d76072b66b746c20815fb2872d"
+			"Comment": "0.1.1-2-g481a6f6",
+			"Rev": "481a6f6dc6638466d98de5066ed3439b12824457"
 		},
 		{
 			"ImportPath": "github.com/gorilla/mux",
-			"Rev": "9c068cf16d982f8bd444b8c352acbeec34c4fe5b"
+			"Comment": "v1.3.0",
+			"Rev": "392c28fe23e1c45ddba891b0320b3b5df220beea"
 		},
 		{
 			"ImportPath": "golang.org/x/sys/unix",
-			"Rev": "5a8c7f28c1853e998847117cf1f3fe96ce88a59f"
+			"Rev": "99f16d856c9836c42d24e7ab64ea72916925fa97"
 		},
 		{
 			"ImportPath": "gopkg.in/mgo.v2/bson",
-			"Comment": "r2016.02.04-1-gb6e2fa3",
-			"Rev": "b6e2fa371e64216a45e61072a96d4e3859f169da"
+			"Comment": "r2016.08.01-5-g3f83fa5",
+			"Rev": "3f83fa5005286a7fe593b055f0d7771a7dce4655"
+		},
+		{
+			"ImportPath": "gopkg.in/mgo.v2/internal/json",
+			"Comment": "r2016.08.01-5-g3f83fa5",
+			"Rev": "3f83fa5005286a7fe593b055f0d7771a7dce4655"
 		}
 	]
 }

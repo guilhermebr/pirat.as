@@ -15,6 +15,7 @@ func main() {
 	if err := shortener.ConnectDB("shortener"); err != nil {
 		log.Fatal(err)
 	}
+	defer shortener.CloseDB()
 
 	n := negroni.Classic()
 	r := mux.NewRouter()
